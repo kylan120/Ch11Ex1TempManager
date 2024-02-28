@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using TempManager.Models;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Ch11Ex1TempManager.Controllers
 {
@@ -28,6 +29,7 @@ namespace Ch11Ex1TempManager.Controllers
                 return RedirectToAction("Index");
             } 
             else {
+                ModelState.AddModelError("", "Please correct all errors");
                 return View(temp);
             }
         }
